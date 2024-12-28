@@ -1,5 +1,5 @@
 pyrogram
-python-libtorrent==1.2.12
+libtorrent==1.2.12
 tgcrypto
 moviepy==1.0.3
 Flask==1.1.2
