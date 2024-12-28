@@ -1,6 +1,6 @@
-pyrogram==2.0.49
+pyrogram
 python-libtorrent==1.2.12
-tgcrypto==1.2.1
+tgcrypto
 moviepy==1.0.3
 Flask==1.1.2
 gunicorn==20.1.0
