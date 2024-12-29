@@ -4,7 +4,7 @@ import time
 import sys
 import shutil
 from pyrogram import Client, filters
-from pyrogram.types import InputFile
+from pyrogram.types import Message
 from pyrogram.errors import RPCError
 from moviepy.editor import VideoFileClip
 
@@ -87,7 +87,7 @@ def download_torrent(torrent_file, chat_id, message_id):
                         chat_id,
                         video_file,
                         caption=f"Here is your video: {h.name()}",
-                        thumb=InputFile(thumbnail)
+                        thumb=thumbnail
                     )
             else:
                 # Send video without thumbnail if thumbnail generation failed
@@ -101,7 +101,8 @@ def download_torrent(torrent_file, chat_id, message_id):
         else:
             # If the file is not a video, send it as a regular file
             app.edit_message_text(chat_id, message_id, f"Download complete! Sending file: {h.name()} now...")
-            app.send_document(chat_id, InputFile(downloaded_file))
+            app.send_document(chat_id,
+                              document=downloaded_file)
 
     except Exception as e:
         app.edit_message_text(chat_id, message_id, f"Error during download: {str(e)}")
