@@ -19,6 +19,12 @@ app = Client("TorrentBot", api_id=api_id, api_hash=api_hash, bot_token=bot_token
 # Define download folder
 download_dir = "/dl"
 
+
+if not os.path.exists('temp'):
+    os.makedirs('temp')
+
+if not os.path.exists(download_dir):
+    os.makedirs(download_dir)
 # Function to generate thumbnail for video files
 def generate_thumbnail(video_path, thumbnail_path):
     try:
