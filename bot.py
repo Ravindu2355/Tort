@@ -130,7 +130,7 @@ def handle_torrent(client, message):
         progress_msg = message.reply_text("Starting download...")
 
         # Call the function to download the torrent
-        download_torrent(torrent_file_path, message.chat.id, progress_msg.message_id)
+        download_torrent(torrent_file_path, message.chat.id, progress_msg.id)
     except Exception as e:
         message.reply_text(f"An error occurred while handling the torrent: {str(e)}")
 
@@ -148,7 +148,7 @@ def handle_magnet(client, message):
             progress_msg = message.reply_text("Starting download...")
 
             # Call the function to download the torrent from the magnet link
-            download_torrent(torrent_file_path, message.chat.id, progress_msg.message_id)
+            download_torrent(torrent_file_path, message.chat.id, progress_msg.id)
         except Exception as e:
             message.reply_text(f"An error occurred while handling the magnet link: {str(e)}")
 
