@@ -17,7 +17,7 @@ bot_token = os.getenv("tk") # Replace with your Bot Token
 app = Client("TorrentBot", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
 
 # Define download folder
-download_dir = "/path/to/download/folder"
+download_dir = "/dl"
 
 # Function to generate thumbnail for video files
 def generate_thumbnail(video_path, thumbnail_path):
@@ -113,7 +113,7 @@ def start(client, message):
     message.reply_text("Send me a torrent file or magnet link to start the download.")
 
 # Handle file (torrent file) download request
-@app.on_message(filters.document.mime_type("application/x-bittorrent"))
+#@app.on_message(filters.document.mime_type("application/x-bittorrent"))
 def handle_torrent(client, message):
     try:
         # Download the torrent file
@@ -134,7 +134,7 @@ def handle_magnet(client, message):
     if message.text.startswith("magnet:?"):
         try:
             # Save the magnet link to a temporary file (for simplicity)
-            torrent_file_path = "/path/to/temp/magnet.torrent"
+            torrent_file_path = "temp/magnet.torrent"
             with open(torrent_file_path, "w") as f:
                 f.write(message.text)
 
